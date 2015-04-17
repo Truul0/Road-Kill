@@ -14,11 +14,18 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	var car2 = createObjectPic("Images/car2.png")
 	var car3 = createObjectPic("Images/car3.png")
 	var car4 = createObjectPic("Images/car5.png")
+	var egg1 = createObjectPic("Images/egg1.png")
+	var egg2 = createObjectPic("Images/egg1.png")
+	var egg3 = createObjectPic("Images/egg1.png")
+	var egg4 = createObjectPic("Images/egg1.png")
+	var egg6 = createObjectPic("Images/egg1.png")
+	var egg7 = createObjectPic("Images/egg1.png")
+	
 	var aispeed
 	var enemy = createObjectPic("Images/coon.png")
 	var chicken = createObjectPic("Images/chicken.png")
 	var square = createObjectPic("Images/square.png")
-	var grass = createObjectPic("Images/grass.png")
+	var grass = createObjectPic("Images/coonarea.png")
 	var grass2 = createObjectPic("Images/grass.png")
 	var grass3 = createObjectPic("Images/grass.png")
 	var grass4 = createObjectPic("Images/grass.png")
@@ -27,12 +34,30 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	var grass7 = createObjectPic("Images/grass.png")
 	var grass8 = createObjectPic("Images/grass.png")
 	var grass9 = createObjectPic("Images/grass.png")
+	var grass10 = createObjectPic("Images/grass.png")
 	var death = createObjectPic("Images/death.png")
 	var death2 = createObjectPic("Images/deathscreen2.png")
 	var hole1 = createObjectPic("Images/hole1.png")
+	var win = createObjectPic("Images/win.png")
+	var text1 = createObjectPic("Images/text1.png")
 	numObjects = 0;
 	numObjectsLoaded =0;
 	var screen = 0;
+	
+	
+	
+	
+	var button1 =createButton (190,200,300,100,null, "Instructions");
+	button1.colour = 'grey'
+	button1.textCol = 'black'
+	button1.job = function(){ 
+	alert("Read pls");
+	screen = 6
+	
+	
+	}
+	
+	
 	var button =createButton (190,50,300,100,null, "Play");
 	button.colour = 'grey'
 	button.textCol = 'black'
@@ -59,14 +84,37 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	car4.y = 370
 	car4.scale = .17
 	
-	chicken.x  
-	chicken.y 
+	egg1.x = 25
+	egg1.y = 3
+	egg1.scale = .03
+	
+	egg2.x = 50
+	egg2.y = 420
+	egg2.scale = .03 
+	
+	egg3.x = 300
+	egg3.y = 410
+	egg3.scale = .03
+	
+	egg4.x = 300
+	egg4.y = 200
+	egg4.scale = .03
+
+	egg6.x = 300
+	egg6.y = 3
+	egg6.scale = .03
+	
+	egg7.x = 630
+	egg7.y = 200
+	egg7.scale = .03
+	
+	
+	
+	chicken.x = 1
+	chicken.y = 100
 	chicken.scale = .3
 	chicken.speedx = 5
 	
-	grass.x = 129
-	grass.y = 63
-	grass.scale = .79
 	
 	enemy.x = 300
 	enemy.y = 190
@@ -127,8 +175,12 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	chicken.scale = .3
 	chicken.speedx = 5
 	
+	grass.x = 129
+	grass.y = 63
+	grass.scale = .79
+	
 	grass2.x = -348                                                                                                                                                        
-	grass2.y = 63
+	grass2.y = 411
 	grass2.scale = .79
 	
 	grass3.x = -348                                                                                                                                                        
@@ -136,20 +188,46 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	grass3.scale = .79
 	
 	grass4.x = -348                                                                                                                                                        
-	grass4.y = 40
+	grass4.x = -348                                                                                                                                                        
+	grass4.y = 63
 	grass4.scale = .79
 	
 	grass5.x = 129                                                                                                                                                     
-	grass5.y = 410
+	grass5.y = 600
 	grass5.scale = .79
 	
+	grass6.x = 129
+	grass6.y = 410
+	grass6.scale = .79
+	
+	grass7.y = -278
+	grass7.x = 129
+	grass7.scale = .79
+	
+	grass8.y = -278
+	grass8.x = 620
+	grass8.scale = .79
+	
+		
+	grass9.x = 620
+	grass9.y = 60
+	grass9.scale = .79
+	
+	grass10.x = 620
+	grass10.y = 410
+	grass10.scale = .79
+	
+	
+	
+	win.y = 1
+	win.x = 
+	win.scale = 1.5
 	
 	
 	
 	death.x = 200 
 	death.y = 100 
 	death.scale = 1
-	
 	
 	
 //////////////////////
@@ -197,7 +275,7 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		////////////////////
 		//	MAIN MENU
 		button.draw();
-		//button1.draw();
+		button1.draw();
 		
 		
 			
@@ -248,9 +326,15 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		car4.x = 700
 		}
 		
+		
 	
+		if(egg1.x > 10000){
+		screen = 5
+		}
 		
-		
+		if(egg2.x > 10000){
+		screen = 5   
+		}
 		
 		if(enemy.x>chicken.x){
 			enemy.x-=aispeed 
@@ -268,6 +352,51 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 			enemy.y+=aispeed   
 		};
 		
+		if(chicken.collideObject (grass)){ 
+		chicken = chicken
+		
+		
+		
+		
+		
+		}else if(chicken.collideObject (egg1)){ 
+		egg1.scale = 0.01 
+		egg1.x = 10000  
+		
+		}else if(chicken.collideObject (egg2)){ 
+		egg2.scale = 0.01 
+		egg2.x = 10000  
+		
+		
+		}else if(chicken.collideObject (egg3)){ 
+		egg3.scale = 0.01 
+		egg3.x = 10000  
+		
+		}else if(chicken.collideObject (egg4)){ 
+		egg4.scale = 0.01 
+		egg4.x = 10000 
+		
+		
+		}else if(chicken.collideObject (egg6)){ 
+		egg6.scale = 0.01 
+		egg6.x = 10000  
+		
+		
+		}else if(chicken.collideObject (egg7)){ 
+		egg7.scale = 0.01 
+		egg7.x = 10000  
+		
+		}
+		
+		
+		if(egg1.x > 1000 && egg2.x > 1000 && egg3.x > 1000 && egg4.x > 1000 && egg6.x > 1000 && egg7.x > 1000){
+		screen = 5
+		}
+		
+		
+		
+		
+		
 		
 		if(enemy.collideObject (chicken)){  
 		screen = 4
@@ -280,17 +409,13 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		if(enemy.y >280) enemy.y = 280
 		
 		
-		
-		
 		if(chicken.collideObject (enemy)){
 		screen = 4
 		
 		
 		}
+		
 	
-	
-
-
 	    hole1.draw();
 		map.draw();	
 		grass.draw();
@@ -298,14 +423,23 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		grass3.draw();
 		grass4.draw();
 		grass5.draw();
+		grass6.draw();
+		grass7.draw();
+		grass8.draw();
+		grass9.draw();
+		grass10.draw();
 		car1.draw();
 		car2.draw();
 		car3.draw();
 		car4.draw();
 		enemy.draw();
 		chicken.draw();
-		
-	
+		egg1.draw();
+		egg2.draw();
+		egg3.draw();
+		egg4.draw();
+		egg6.draw(); 
+		egg7.draw();
 		
 		}else if(screen == 3){
 		//another game screen
@@ -321,13 +455,39 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		death2.draw();
 
 
-        }
+        
 
+		}else if(screen == 5){
+		////////////////////
+		//	GAME SCREEN 5
+		
+		ctx.fillStyle = "White"
+		ctx.fillText("You have won",300,300) 
+		ctx.fillText("Two more levels will be developed in a while!",300,400)
+		win.draw();
+		
+	
 
-
-
-
-
+		}else if(screen == 6){
+		// game screen 6
+		ctx.fillStyle = "Black"
+		text1.draw();
+		
+		}
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	}////////////////////////////////////////////////////////////////////////////////END PAINT/ GAME ENGINE
 	
@@ -359,7 +519,15 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		
 		}
 		
-	   
+	   if (screen == 1){
+		if(button1.isMouseOver()) button1.job()
+		   
+		   
+		   
+		   
+		   
+		 
+	   }
 		
 		
 	   
@@ -426,7 +594,7 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 	
 		}else if(key==37){//left
 		chicken.x -= chicken.speedx 
-		if(chicken.x < 0) chicken.x = 0
+		if(chicken.x < 1) chicken.x = 3
 		chicken.rotation = -90
 		
 	
@@ -437,13 +605,18 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
 		
 		}else if (key == 39){//right
 		chicken.x += chicken.speedx;
-		if(chicken.x < 0 ) chicken.x = 640
+		if(chicken.x > 625) chicken.x = 624
 		chicken.rotation = 90
 		
 		}else if (key == 40){//down
 		chicken.y += chicken.speedx
-		if(chicken.y < 0) chicken.y = 425
+		if(chicken.y > 410) chicken.y = 405
+	
 		chicken.rotation = 180
+		
+		}else if (key == 82){//Restart
+		screen = 1
+		
 		}
 		
 	}, false); //End the event listener
